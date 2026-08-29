@@ -1,0 +1,17 @@
+{
+  "semverGroups": [
+    {
+      "packages": ["**"],
+      "dependencies": [
+        "react",
+        "react-dom",
+        "@mui/material",
+        "@emotion/react",
+        "@emotion/styled",
+        "react-router-dom"
+      ],
+      "dependencyTypes": ["peerDependencies"],
+      "range": "^"
+    }
+  ]
+}

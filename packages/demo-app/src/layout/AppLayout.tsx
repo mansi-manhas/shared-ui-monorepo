@@ -2,7 +2,7 @@ import * as React from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { Navbar, Sidebar, UserMenu, type SidebarItem, type NavItem } from "@my-org/navigation-ui";
+import { Navbar, Sidebar, UserMenu, type SidebarItem, type NavItem } from "@mansi-manhas/navigation-ui";
 import { useSession } from "../state/SessionContext";
 
 const NAV_ITEMS: NavItem[] = [

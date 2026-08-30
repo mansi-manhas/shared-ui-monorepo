@@ -1,8 +1,8 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
-import { AccountSettings, type NotificationPreferences } from "@my-org/user-profile-ui";
-import { Breadcrumbs } from "@my-org/navigation-ui";
-import { Alert } from "@my-org/components-ui";
+import { AccountSettings, type NotificationPreferences } from "@mansi-manhas/user-profile-ui";
+import { Breadcrumbs } from "@mansi-manhas/navigation-ui";
+import { Alert } from "@mansi-manhas/components-ui";
 
 export function SettingsPage() {
   const [notifications, setNotifications] = React.useState<NotificationPreferences>({

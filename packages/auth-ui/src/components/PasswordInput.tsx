@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Input, type InputProps } from "@my-org/components-ui";
+import { Input, type InputProps } from "@mansi-manhas/components-ui";
 import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
 

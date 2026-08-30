@@ -1,9 +1,9 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import { ProfileHeader, ProfileForm, UserProfileCard, type ProfileFormData } from "@my-org/user-profile-ui";
-import { Alert } from "@my-org/components-ui";
-import { Breadcrumbs } from "@my-org/navigation-ui";
+import { ProfileHeader, ProfileForm, UserProfileCard, type ProfileFormData } from "@mansi-manhas/user-profile-ui";
+import { Alert } from "@mansi-manhas/components-ui";
+import { Breadcrumbs } from "@mansi-manhas/navigation-ui";
 import { useSession } from "../state/SessionContext";
 
 export function ProfilePage() {

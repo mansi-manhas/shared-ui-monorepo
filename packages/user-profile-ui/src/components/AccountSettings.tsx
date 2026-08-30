@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import { Button, Checkbox, Card } from "@my-org/components-ui";
+import { Button, Checkbox, Card } from "@mansi-manhas/components-ui";
 
 export interface NotificationPreferences {
   productUpdates: boolean;

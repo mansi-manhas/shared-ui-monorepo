@@ -1,4 +1,4 @@
-# @my-org/demo-app
+# @mansi-manhas/demo-app
 
 A small application that consumes all four shared UI packages, showing how a real app is meant to wire them together: authentication, layout, profile management, and a live component gallery. **Not published** (`private: true`) — it exists only to demonstrate and manually test the packages in this monorepo.
 
@@ -18,7 +18,7 @@ Auth is mocked in `src/state/SessionContext.tsx` — any email/password combinat
 
 ```sh
 pnpm install
-pnpm --filter @my-org/demo-app dev
+pnpm --filter @mansi-manhas/demo-app dev
 # or from the repo root:
 pnpm dev:demo
 ```
@@ -28,5 +28,5 @@ Then open http://localhost:5173.
 ## Build
 
 ```sh
-pnpm --filter @my-org/demo-app build
+pnpm --filter @mansi-manhas/demo-app build
 ```

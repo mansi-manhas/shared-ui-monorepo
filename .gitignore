@@ -24,3 +24,9 @@ yarn-error.log*
 
 # Coverage
 coverage/
+
+# npm/pnpm publish artifacts
+*.tgz
+
+# Vite cache
+.vite/

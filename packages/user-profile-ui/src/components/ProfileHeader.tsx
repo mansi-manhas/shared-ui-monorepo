@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Button } from "@my-org/components-ui";
+import { Button } from "@mansi-manhas/components-ui";
 import { UserAvatar, type UserPresenceStatus } from "./UserAvatar";
 import type { UserProfile } from "../types";
 

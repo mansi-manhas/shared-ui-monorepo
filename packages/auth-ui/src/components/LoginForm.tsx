@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-import { Button, Input, Alert } from "@my-org/components-ui";
+import { Button, Input, Alert } from "@mansi-manhas/components-ui";
 import { PasswordInput } from "./PasswordInput";
 import { SocialLoginButtons, type SocialProvider, type SocialLoginOption } from "./SocialLoginButtons";
 import { validateEmail, validatePassword } from "../utils/validation";

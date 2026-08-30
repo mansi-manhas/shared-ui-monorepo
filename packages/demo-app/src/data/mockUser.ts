@@ -1,4 +1,4 @@
-import type { UserProfile } from "@my-org/user-profile-ui";
+import type { UserProfile } from "@mansi-manhas/user-profile-ui";
 
 export const mockUser: UserProfile = {
   id: "user_1",

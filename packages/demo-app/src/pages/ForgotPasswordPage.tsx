@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import { ForgotPasswordForm, type ForgotPasswordFormData } from "@my-org/auth-ui";
+import { ForgotPasswordForm, type ForgotPasswordFormData } from "@mansi-manhas/auth-ui";
 
 export function ForgotPasswordPage() {
   const [loading, setLoading] = React.useState(false);

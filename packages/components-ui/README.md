@@ -1,11 +1,11 @@
-# @my-org/components-ui
+# @mansi-manhas/components-ui
 
 Generic, accessible UI primitives shared across our applications. Thin, opinionated wrappers around [MUI](https://mui.com/material-ui/) so every app gets the same look, behavior, and accessibility baseline without depending on MUI's API directly.
 
 ## Installation
 
 ```sh
-pnpm add @my-org/components-ui
+pnpm add @mansi-manhas/components-ui
 ```
 
 Peer dependencies (must be installed by the consuming app):
@@ -31,7 +31,7 @@ const theme = createTheme();
 ## Usage
 
 ```tsx
-import { Button, Input, Modal } from "@my-org/components-ui";
+import { Button, Input, Modal } from "@mansi-manhas/components-ui";
 
 function Example() {
   return (
@@ -67,7 +67,7 @@ Every component forwards `className`/`sx` and any native/MUI props it doesn't ex
 ## Scripts
 
 ```sh
-pnpm --filter @my-org/components-ui build       # tsup -> dist (cjs + esm + d.ts)
-pnpm --filter @my-org/components-ui dev         # tsup --watch
-pnpm --filter @my-org/components-ui typecheck   # tsc --noEmit
+pnpm --filter @mansi-manhas/components-ui build       # tsup -> dist (cjs + esm + d.ts)
+pnpm --filter @mansi-manhas/components-ui dev         # tsup --watch
+pnpm --filter @mansi-manhas/components-ui typecheck   # tsc --noEmit
 ```

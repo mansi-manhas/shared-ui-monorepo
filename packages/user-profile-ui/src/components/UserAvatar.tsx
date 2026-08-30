@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { Avatar, type AvatarProps } from "@my-org/components-ui";
+import { Avatar, type AvatarProps } from "@mansi-manhas/components-ui";
 
 export type UserPresenceStatus = "online" | "away" | "offline";
 

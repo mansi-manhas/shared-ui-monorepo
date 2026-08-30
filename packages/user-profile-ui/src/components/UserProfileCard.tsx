@@ -1,6 +1,6 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
-import { Card, type CardProps } from "@my-org/components-ui";
+import { Card, type CardProps } from "@mansi-manhas/components-ui";
 import { UserAvatar, type UserPresenceStatus } from "./UserAvatar";
 import { UserDetails } from "./UserDetails";
 import type { UserProfile } from "../types";

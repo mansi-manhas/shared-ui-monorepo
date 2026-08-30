@@ -1,11 +1,11 @@
-# @my-org/user-profile-ui
+# @mansi-manhas/user-profile-ui
 
-Reusable user profile UI: profile cards, headers, forms, and account settings. Built on [`@my-org/components-ui`](../components-ui).
+Reusable user profile UI: profile cards, headers, forms, and account settings. Built on [`@mansi-manhas/components-ui`](../components-ui).
 
 ## Installation
 
 ```sh
-pnpm add @my-org/user-profile-ui
+pnpm add @mansi-manhas/user-profile-ui
 ```
 
 Peer dependencies match `components-ui`.
@@ -13,7 +13,7 @@ Peer dependencies match `components-ui`.
 ## Usage
 
 ```tsx
-import { ProfileHeader, ProfileForm, type ProfileFormData } from "@my-org/user-profile-ui";
+import { ProfileHeader, ProfileForm, type ProfileFormData } from "@mansi-manhas/user-profile-ui";
 
 const user = { id: "1", name: "Jordan Avery", email: "jordan@example.com" };
 
@@ -42,7 +42,7 @@ const user = { id: "1", name: "Jordan Avery", email: "jordan@example.com" };
 ## Scripts
 
 ```sh
-pnpm --filter @my-org/user-profile-ui build
-pnpm --filter @my-org/user-profile-ui dev
-pnpm --filter @my-org/user-profile-ui typecheck
+pnpm --filter @mansi-manhas/user-profile-ui build
+pnpm --filter @mansi-manhas/user-profile-ui dev
+pnpm --filter @mansi-manhas/user-profile-ui typecheck
 ```

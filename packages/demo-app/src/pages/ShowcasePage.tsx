@@ -15,8 +15,8 @@ import {
   Avatar,
   Tooltip,
   type ButtonVariant,
-} from "@my-org/components-ui";
-import { Breadcrumbs, Tabs } from "@my-org/navigation-ui";
+} from "@mansi-manhas/components-ui";
+import { Breadcrumbs, Tabs } from "@mansi-manhas/navigation-ui";
 
 const BUTTON_VARIANTS: ButtonVariant[] = ["primary", "secondary", "danger", "ghost"];
 
@@ -42,7 +42,7 @@ export function ShowcasePage() {
           Component showcase
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          A live gallery of every primitive exported from <code>@my-org/components-ui</code>.
+          A live gallery of every primitive exported from <code>@mansi-manhas/components-ui</code>.
         </Typography>
       </Stack>
 

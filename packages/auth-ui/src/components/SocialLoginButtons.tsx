@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack";
-import { Button } from "@my-org/components-ui";
+import { Button } from "@mansi-manhas/components-ui";
 
 export type SocialProvider = "google" | "github" | "microsoft" | "apple";
 

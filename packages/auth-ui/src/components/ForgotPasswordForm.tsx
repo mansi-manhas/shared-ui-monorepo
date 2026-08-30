@@ -1,7 +1,7 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Button, Input, Alert } from "@my-org/components-ui";
+import { Button, Input, Alert } from "@mansi-manhas/components-ui";
 import { validateEmail } from "../utils/validation";
 
 export interface ForgotPasswordFormData {

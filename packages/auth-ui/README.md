@@ -1,11 +1,11 @@
-# @my-org/auth-ui
+# @mansi-manhas/auth-ui
 
-Reusable authentication UI: login, signup, and password recovery forms. Built on [`@my-org/components-ui`](../components-ui). Ships **no backend logic** — every form calls a callback you provide and manages its own field state, validation, loading/error/success display.
+Reusable authentication UI: login, signup, and password recovery forms. Built on [`@mansi-manhas/components-ui`](../components-ui). Ships **no backend logic** — every form calls a callback you provide and manages its own field state, validation, loading/error/success display.
 
 ## Installation
 
 ```sh
-pnpm add @my-org/auth-ui
+pnpm add @mansi-manhas/auth-ui
 ```
 
 Peer dependencies: `react`, `react-dom`, `@mui/material`, `@emotion/react`, `@emotion/styled`, `react-router-dom` (same as `components-ui`).
@@ -13,7 +13,7 @@ Peer dependencies: `react`, `react-dom`, `@mui/material`, `@emotion/react`, `@em
 ## Usage
 
 ```tsx
-import { LoginForm, type LoginFormData } from "@my-org/auth-ui";
+import { LoginForm, type LoginFormData } from "@mansi-manhas/auth-ui";
 
 function LoginPage() {
   const [error, setError] = useState<string>();
@@ -53,7 +53,7 @@ All forms accept `loading`, `errorMessage`, and `successMessage` props so the ho
 ## Scripts
 
 ```sh
-pnpm --filter @my-org/auth-ui build
-pnpm --filter @my-org/auth-ui dev
-pnpm --filter @my-org/auth-ui typecheck
+pnpm --filter @mansi-manhas/auth-ui build
+pnpm --filter @mansi-manhas/auth-ui dev
+pnpm --filter @mansi-manhas/auth-ui typecheck
 ```

@@ -1,7 +1,7 @@
 import ButtonBase from "@mui/material/ButtonBase";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { Avatar } from "@my-org/components-ui";
+import { Avatar } from "@mansi-manhas/components-ui";
 import { DropdownMenu, type DropdownMenuItem } from "./DropdownMenu";
 
 export interface UserMenuProps {

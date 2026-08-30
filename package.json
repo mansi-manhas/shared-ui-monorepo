@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint:versions": "syncpack lint",
     "build": "pnpm -r run build",
     "typecheck": "pnpm -r run build && pnpm -r run typecheck",
-    "dev:demo": "pnpm --filter @my-org/demo-app dev"
+    "dev:demo": "pnpm --filter @mansi-manhas/demo-app dev"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.1",
     "syncpack": "15.3.3",
     "typescript": "^5.4.2"
   },

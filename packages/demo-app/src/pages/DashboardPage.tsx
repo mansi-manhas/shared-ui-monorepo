@@ -1,8 +1,8 @@
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { Card, Badge, Alert } from "@my-org/components-ui";
-import { Breadcrumbs } from "@my-org/navigation-ui";
+import { Card, Badge, Alert } from "@mansi-manhas/components-ui";
+import { Breadcrumbs } from "@mansi-manhas/navigation-ui";
 import { useSession } from "../state/SessionContext";
 
 const STATS = [
@@ -28,8 +28,8 @@ export function DashboardPage() {
       </Stack>
 
       <Alert variant="info" title="Shared UI packages loaded">
-        This dashboard is composed entirely from <code>@my-org/components-ui</code> and{" "}
-        <code>@my-org/navigation-ui</code>.
+        This dashboard is composed entirely from <code>@mansi-manhas/components-ui</code> and{" "}
+        <code>@mansi-manhas/navigation-ui</code>.
       </Alert>
 
       <Grid container spacing={2}>

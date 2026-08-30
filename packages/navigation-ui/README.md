@@ -1,11 +1,11 @@
-# @my-org/navigation-ui
+# @mansi-manhas/navigation-ui
 
-Reusable navigation UI: navbar, sidebar, breadcrumbs, tabs, and menus. Built on [`@my-org/components-ui`](../components-ui) and `react-router-dom` — items with an `href` render as router `Link`s so navigation stays client-side (no full page reload).
+Reusable navigation UI: navbar, sidebar, breadcrumbs, tabs, and menus. Built on [`@mansi-manhas/components-ui`](../components-ui) and `react-router-dom` — items with an `href` render as router `Link`s so navigation stays client-side (no full page reload).
 
 ## Installation
 
 ```sh
-pnpm add @my-org/navigation-ui
+pnpm add @mansi-manhas/navigation-ui
 ```
 
 Must be rendered inside a `react-router-dom` `<BrowserRouter>` (or another router). Peer dependencies otherwise match `components-ui`.
@@ -13,7 +13,7 @@ Must be rendered inside a `react-router-dom` `<BrowserRouter>` (or another route
 ## Usage
 
 ```tsx
-import { Navbar, Sidebar, UserMenu } from "@my-org/navigation-ui";
+import { Navbar, Sidebar, UserMenu } from "@mansi-manhas/navigation-ui";
 
 <Navbar
   logo={<Logo />}
@@ -61,7 +61,7 @@ interface NavItem {
 ## Scripts
 
 ```sh
-pnpm --filter @my-org/navigation-ui build
-pnpm --filter @my-org/navigation-ui dev
-pnpm --filter @my-org/navigation-ui typecheck
+pnpm --filter @mansi-manhas/navigation-ui build
+pnpm --filter @mansi-manhas/navigation-ui dev
+pnpm --filter @mansi-manhas/navigation-ui typecheck
 ```

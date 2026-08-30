@@ -14,6 +14,6 @@ export default defineConfig({
     "@emotion/react",
     "@emotion/styled",
     "react-router-dom",
-    "@my-org/components-ui",
+    "@mansi-manhas/components-ui",
   ],
 });

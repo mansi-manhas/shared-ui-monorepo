@@ -1,7 +1,7 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Button, Input, Alert, Checkbox } from "@my-org/components-ui";
+import { Button, Input, Alert, Checkbox } from "@mansi-manhas/components-ui";
 import { PasswordInput } from "./PasswordInput";
 import { validateEmail, validatePassword, validatePasswordsMatch, validateRequired } from "../utils/validation";
 

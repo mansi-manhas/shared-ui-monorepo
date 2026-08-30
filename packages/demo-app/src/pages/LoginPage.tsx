@@ -2,7 +2,7 @@ import * as React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import { LoginForm, type LoginFormData, type SocialProvider } from "@my-org/auth-ui";
+import { LoginForm, type LoginFormData, type SocialProvider } from "@mansi-manhas/auth-ui";
 import { useSession } from "../state/SessionContext";
 
 export function LoginPage() {

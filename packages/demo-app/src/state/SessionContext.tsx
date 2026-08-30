@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { UserProfile } from "@my-org/user-profile-ui";
+import type { UserProfile } from "@mansi-manhas/user-profile-ui";
 import { mockUser } from "../data/mockUser";
 
 interface SessionState {

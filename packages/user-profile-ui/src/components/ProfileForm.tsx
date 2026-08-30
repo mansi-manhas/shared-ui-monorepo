@@ -1,7 +1,7 @@
 import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import { Button, Input } from "@my-org/components-ui";
+import { Button, Input } from "@mansi-manhas/components-ui";
 import { UserAvatar } from "./UserAvatar";
 import type { UserProfile } from "../types";
 

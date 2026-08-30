@@ -1,6 +1,6 @@
 {
   "name": "@mansi-manhas/auth-ui",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Reusable authentication UI: login, signup, and password recovery forms.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

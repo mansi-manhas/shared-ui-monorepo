@@ -1,6 +1,6 @@
 {
   "name": "@mansi-manhas/navigation-ui",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Reusable navigation UI: navbar, sidebar, breadcrumbs, tabs, and menus.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

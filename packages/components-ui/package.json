@@ -1,6 +1,6 @@
 {
   "name": "@mansi-manhas/components-ui",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Generic, accessible UI primitives shared across applications.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

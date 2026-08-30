@@ -1,5 +1,13 @@
 # @mansi-manhas/navigation-ui
 
+## 3.0.1
+
+### Patch Changes
+
+- minor config changes
+- Updated dependencies [`61caea3`]:
+  - @mansi-manhas/components-ui@3.0.1
+
 ## 3.0.0
 
 ### Major Changes

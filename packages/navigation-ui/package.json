@@ -1,6 +1,6 @@
 {
-  "name": "@my-org/navigation-ui",
-  "version": "2.0.0",
+  "name": "@mansi-manhas/navigation-ui",
+  "version": "3.0.0",
   "description": "Reusable navigation UI: navbar, sidebar, breadcrumbs, tabs, and menus.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -28,7 +28,7 @@
     "react-router-dom": "^6.0.0"
   },
   "dependencies": {
-    "@my-org/components-ui": "workspace:*"
+    "@mansi-manhas/components-ui": "workspace:*"
   },
   "devDependencies": {
     "@emotion/react": "^11.14.0",
@@ -41,5 +41,9 @@
     "react-router-dom": "^6.30.6",
     "tsup": "^8.3.5",
     "typescript": "^5.4.2"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   }
 }

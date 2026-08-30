@@ -1,6 +1,6 @@
 {
-  "name": "@my-org/components-ui",
-  "version": "2.0.0",
+  "name": "@mansi-manhas/components-ui",
+  "version": "3.0.0",
   "description": "Generic, accessible UI primitives shared across applications.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -38,5 +38,9 @@
     "react-router-dom": "^6.30.6",
     "tsup": "^8.3.5",
     "typescript": "^5.4.2"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   }
 }

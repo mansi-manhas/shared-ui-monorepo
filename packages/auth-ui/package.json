@@ -1,12 +1,14 @@
 {
-  "name": "@my-org/auth-ui",
-  "version": "2.0.0",
+  "name": "@mansi-manhas/auth-ui",
+  "version": "3.0.0",
   "description": "Reusable authentication UI: login, signup, and password recovery forms.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "sideEffects": false,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -28,7 +30,7 @@
     "react-router-dom": "^6.0.0"
   },
   "dependencies": {
-    "@my-org/components-ui": "workspace:*"
+    "@mansi-manhas/components-ui": "workspace:*"
   },
   "devDependencies": {
     "@emotion/react": "^11.14.0",
@@ -41,5 +43,9 @@
     "react-router-dom": "^6.30.6",
     "tsup": "^8.3.5",
     "typescript": "^5.4.2"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   }
 }

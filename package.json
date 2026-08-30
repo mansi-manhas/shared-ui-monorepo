@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:versions": "syncpack lint"
+    "lint:versions": "syncpack lint",
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run build && pnpm -r run typecheck",
+    "dev:demo": "pnpm --filter @my-org/demo-app dev"
   },
   "devDependencies": {
     "syncpack": "15.3.3",

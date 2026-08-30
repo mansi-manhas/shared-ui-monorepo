@@ -48,6 +48,10 @@ Runs `syncpack lint` to check that dependency versions are consistent across all
 Adds a dev dependency to the **root** `package.json` (`-w` = workspace root), rather than a specific package.
 **When to use:** For tooling that applies to the whole repo (e.g. `@changesets/cli`, `syncpack`), not to an individual library.
 
+### `pnpm run publish:verify`
+Packs every publishable package the same way pnpm would for a real publish, then inspects each resulting tarball's `package.json` for any dependency still on the `workspace:` protocol (e.g. `"@mansi-manhas/components-ui": "workspace:*"`). Fails loudly, naming the exact package and dependency, instead of letting it slip through — a package published with a raw `workspace:*` dependency installs fine locally but fails silently (`exit code 1`, no useful message) for every consumer outside this workspace.
+**When to use:** Before every publish, and always before a manual `cd packages/<name> && pnpm publish` for a package's first release.
+
 ---
 
 ## Versioning (Changesets)
@@ -66,8 +70,10 @@ Publishes any package whose current version isn't yet on the registry (per `publ
 
 > **First publish only:** GitHub Packages returns a 404 for a package that's never been published, which `pnpm changeset publish` treats as fatal. For a package's very first version, publish it manually instead:
 > ```bash
-> cd packages/<name> && npm publish && cd ../..
+> cd packages/<name> && pnpm publish --no-git-checks && cd ../..
 > ```
+> Use `pnpm publish`, **not** bare `npm publish` — a package here can depend on another workspace package via `workspace:*`, and only `pnpm publish`/`pnpm pack` rewrite that to the dependency's real version before publishing. Plain `npm publish` doesn't understand the `workspace:` protocol at all: it writes `"workspace:*"` into the published `package.json` verbatim, with no warning, and installs of that package then fail for every consumer outside this workspace (npm can't resolve `workspace:*`, and the failure is a bare `exit code 1` with no useful message). Run `pnpm run publish:verify` first if you want to confirm a package packs clean before publishing it this way.
+>
 > After that, `pnpm changeset publish` works normally for all future versions of that package.
 
 ### `pnpm -r publish --access restricted`
@@ -99,6 +105,34 @@ pnpm changeset version
 # 5. Build the packages (dist/ isn't committed)
 pnpm build
 
-# 6. Publish
+# 6. Verify no package would publish with an unresolved workspace: dependency
+pnpm run publish:verify
+
+# 7. Publish
 pnpm changeset publish
 ```
+
+
+---
+
+Here's the rest of the flow:
+
+# 1. Bump versions from the changeset (local, reversible — just edits package.json/CHANGELOG.md)
+pnpm changeset version
+
+# 2. Build (dist/ isn't committed)
+pnpm build
+
+# 3. Verify the fix actually worked before publishing
+pnpm run publish:verify
+
+# 4. Commit the version bump
+git add .changeset packages/auth-ui packages/navigation-ui packages/user-profile-ui
+git commit -m "fix: republish auth-ui, navigation-uiolved workspace dependency"
+
+# 5. Publish (needs your GitHub Packages token in ~/
+pnpm changeset publish
+
+# 6. Push
+git push
+          

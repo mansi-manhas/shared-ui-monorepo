@@ -4,6 +4,7 @@ Reference for the commands you'll use regularly in this monorepo, grouped by tas
 
 # Order of pushing new commits or versions 
 
+pnpm changeset
 pnpm changeset version   # bumps versions, consumes both pending changeset files
 pnpm build               # dist/ isn't committed, must rebuild before publish
 pnpm run publish:verify  # catches any lingering workspace:* deps

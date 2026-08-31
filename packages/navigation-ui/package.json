@@ -19,16 +19,14 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
+  "dependencies": {
+    "@mansi-manhas/components-ui": "workspace:*",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@mui/material": "^5.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0"
-  },
-  "dependencies": {
-    "@mansi-manhas/components-ui": "workspace:*"
   },
   "devDependencies": {
     "@emotion/react": "^11.14.0",

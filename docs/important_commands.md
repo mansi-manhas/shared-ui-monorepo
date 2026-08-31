@@ -2,6 +2,44 @@
 
 Reference for the commands you'll use regularly in this monorepo, grouped by task.
 
+# Order of pushing new commits or versions 
+
+pnpm changeset version   # bumps versions, consumes both pending changeset files
+pnpm build               # dist/ isn't committed, must rebuild before publish
+pnpm run publish:verify  # catches any lingering workspace:* deps
+git add .
+git commit -m "Version Packages"
+pnpm changeset publish   # now actually publishes the new versions
+git push
+
+# How to do it with the automatic github workflow 
+
+## Option A — normal changesets path (recommended, no manual Action trigger needed)
+
+This is what you'd do for any regular release, just picking major instead of patch in the prompt:
+
+pnpm changeset
+- Select the package(s) you want bumped
+- When asked "Which packages should have a major bump?" — select them there (not the patch section)
+- Write the summary
+- This creates/commits a .changeset/*.md file with major in its frontmatter
+
+git push origin main   # or merge your PR into main
+
+That's it. The push-to-main trigger in the workflow runs pnpm changeset version, which reads that changeset file and does the major bump, build, verify, and publish automatically — no need to touch the Actions UI at all.
+
+## Option B — force it via the workflow's manual trigger
+
+Use this if you don't have (or don't want to create) a changeset file, or if you want an exact version number (e.g. jump straight to 4.0.0):
+
+1. Push/merge your code changes to main as normal (wg a changeset).
+2. Go to GitHub → Actions tab → "Release" workflow → "Run workflow".
+3. Pick branch main.
+4. Set bump: major (or fill in version: 4.0.0 if you want that exact number instead of an auto-computed one).
+5. Click Run workflow.
+
+This bypasses whatever's in .changeset/ and forces tges directly.
+
 ## Setup
 
 ### `pnpm install`

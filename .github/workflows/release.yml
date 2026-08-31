@@ -1,0 +1,132 @@
+name: Release
+
+# Two ways to trigger a release:
+#
+# 1. Automatic — push to main.
+#    Runs the normal changesets flow: whatever bump levels are already
+#    recorded in the pending .changeset/*.md files (created via
+#    `pnpm changeset` in a PR) get applied. In this repo those have all
+#    been "patch" so far, so a plain push effectively defaults to patch.
+#
+# 2. Manual — "Run workflow" in the Actions tab (workflow_dispatch).
+#    Lets you force a bump type (patch/minor/major) across all 4
+#    publishable packages regardless of what's pending, or set an exact
+#    version number outright (mainly useful for major releases where you
+#    want a specific number rather than an auto-computed one).
+#
+# Either way: install -> version -> build -> verify -> commit -> publish.
+# If the build (or verify) step fails, the job stops there and nothing
+# gets published.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Bump type to force for all publishable packages (ignored if 'version' is set)"
+        required: false
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        default: patch
+      version:
+        description: "Exact version to set on all publishable packages, e.g. 4.0.0 (overrides 'bump' — mainly for major releases)"
+        required: false
+        type: string
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@mansi-manhas"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # --- Manual dispatch: exact version override ---
+      # Sets the literal version on every publishable package and drops any
+      # pending changesets so they don't cause an extra bump next release.
+      - name: Set exact version
+        if: github.event_name == 'workflow_dispatch' && inputs.version != ''
+        run: |
+          for pkg in auth-ui components-ui navigation-ui user-profile-ui; do
+            pnpm --filter "@mansi-manhas/$pkg" exec -- npm pkg set version="${{ inputs.version }}"
+          done
+          find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md' -delete
+
+      # --- Manual dispatch: forced bump type (no exact version given) ---
+      # Writes a temporary changeset requesting this bump for all 4 packages.
+      # `pnpm changeset version` below then consumes it alongside any real
+      # pending changesets, taking the highest bump level per package.
+      - name: Write forced-bump changeset
+        if: github.event_name == 'workflow_dispatch' && inputs.version == ''
+        run: |
+          cat > .changeset/manual-release.md <<EOF
+          ---
+          "@mansi-manhas/auth-ui": ${{ inputs.bump }}
+          "@mansi-manhas/components-ui": ${{ inputs.bump }}
+          "@mansi-manhas/navigation-ui": ${{ inputs.bump }}
+          "@mansi-manhas/user-profile-ui": ${{ inputs.bump }}
+          ---
+
+          Manual ${{ inputs.bump }} release triggered via workflow_dispatch.
+          EOF
+
+      # --- Automatic push, or manual dispatch without an exact version ---
+      - name: Apply pending changesets
+        if: github.event_name != 'workflow_dispatch' || inputs.version == ''
+        run: pnpm changeset version
+
+      - name: Build
+        run: pnpm build
+
+      - name: Verify no unresolved workspace deps
+        run: pnpm run publish:verify
+
+      - name: Commit version bump
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "chore: version packages"
+          else
+            echo "No version changes to commit"
+          fi
+
+      - name: Publish
+        run: pnpm changeset publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push commit and tags
+        run: git push --follow-tags

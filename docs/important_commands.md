@@ -136,3 +136,17 @@ pnpm changeset publish
 # 6. Push
 git push
           
+---
+
+Since changeset version already ran and consumed the changeset (confirmed: .changeset/ is back to just README.md/config.json, versions are 3.0.2), what's left is:
+
+# 1. Build (dist/ isn't committed)
+pnpm build
+
+# 2. Verify the fix actually resolves before publishing
+pnpm run publish:verify
+
+# 3. Publish — needs your GitHub Packages token in ~/.npmrc
+pnpm changeset publish
+
+No new changeset or commit needed — just build, verify, publish. Want me to run steps 1–2 now so you can confirm they're clean before you run the actual publish?

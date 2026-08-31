@@ -107,6 +107,8 @@ jobs:
       - name: Apply pending changesets
         if: github.event_name != 'workflow_dispatch' || inputs.version == ''
         run: pnpm changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         run: pnpm build

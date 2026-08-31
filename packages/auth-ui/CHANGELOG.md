@@ -1,5 +1,16 @@
 # @mansi-manhas/auth-ui
 
+## 3.2.0
+
+### Minor Changes
+
+- using peerDepedencies
+
+### Patch Changes
+
+- Updated dependencies [`1ead368`]:
+  - @mansi-manhas/components-ui@3.2.0
+
 ## 3.1.0
 
 ### Minor Changes

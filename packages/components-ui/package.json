@@ -1,6 +1,6 @@
 {
   "name": "@mansi-manhas/components-ui",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Generic, accessible UI primitives shared across applications.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -19,7 +19,7 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@mui/material": "^5.0.0",

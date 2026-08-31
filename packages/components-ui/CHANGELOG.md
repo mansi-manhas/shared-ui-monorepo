@@ -1,5 +1,11 @@
 # @mansi-manhas/components-ui
 
+## 3.2.0
+
+### Minor Changes
+
+- using peerDepedencies
+
 ## 3.1.0
 
 ### Minor Changes

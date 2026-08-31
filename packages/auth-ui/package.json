@@ -1,6 +1,6 @@
 {
   "name": "@mansi-manhas/auth-ui",
-  "version": "3.0.4",
+  "version": "3.1.0",
   "description": "Reusable authentication UI: login, signup, and password recovery forms.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -26,8 +26,8 @@
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@mui/material": "^5.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
     "react-router-dom": "^6.0.0"
   },
   "devDependencies": {
@@ -36,8 +36,8 @@
     "@mui/material": "^5.18.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
     "react-router-dom": "^6.30.6",
     "tsup": "^8.3.5",
     "typescript": "^5.4.2"

@@ -1,5 +1,16 @@
 # @mansi-manhas/auth-ui
 
+## 3.1.0
+
+### Minor Changes
+
+- react v downgrade
+
+### Patch Changes
+
+- Updated dependencies [`1732e84`, [`5dd57aa`](https://github.com/mansi-manhas/shared-ui-monorepo/commit/5dd57aa170a2f4e8a9f9f761348070718f54e526)]:
+  - @mansi-manhas/components-ui@3.1.0
+
 ## 3.0.4
 
 ### Patch Changes

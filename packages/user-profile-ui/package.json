@@ -1,6 +1,6 @@
 {
   "name": "@mansi-manhas/user-profile-ui",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Reusable user profile UI: profile cards, headers, forms, and account settings.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

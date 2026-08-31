@@ -1,5 +1,15 @@
 # @mansi-manhas/user-profile-ui
 
+## 3.0.3
+
+### Patch Changes
+
+- [`5512db2`](https://github.com/mansi-manhas/shared-ui-monorepo/commit/5512db26f42dacd121c5ded58d3e59fbdbb7be2e) - package header
+
+- [`5512db2`](https://github.com/mansi-manhas/shared-ui-monorepo/commit/5512db26f42dacd121c5ded58d3e59fbdbb7be2e) - package dependency section
+- Updated dependencies [[`5512db2`](https://github.com/mansi-manhas/shared-ui-monorepo/commit/5512db26f42dacd121c5ded58d3e59fbdbb7be2e), [`5512db2`](https://github.com/mansi-manhas/shared-ui-monorepo/commit/5512db26f42dacd121c5ded58d3e59fbdbb7be2e)]:
+  - @mansi-manhas/components-ui@3.0.2
+
 ## 3.0.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@mansi-manhas/auth-ui",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Reusable authentication UI: login, signup, and password recovery forms.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -21,16 +21,14 @@
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
+  "dependencies": {
+    "@mansi-manhas/components-ui": "workspace:*",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "@mui/material": "^5.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0"
-  },
-  "dependencies": {
-    "@mansi-manhas/components-ui": "workspace:*"
   },
   "devDependencies": {
     "@emotion/react": "^11.14.0",

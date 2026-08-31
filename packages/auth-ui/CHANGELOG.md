@@ -1,5 +1,11 @@
 # @mansi-manhas/auth-ui
 
+## 3.0.3
+
+### Patch Changes
+
+- package section changed
+
 ## 3.0.2
 
 ### Patch Changes

@@ -16,7 +16,7 @@ export function DashboardPage() {
 
   return (
     <Stack spacing={3}>
-      <Breadcrumbs items={[{ label: "Home", href: "/dashboard" }, { label: "Dashboard" }]} />
+      <Breadcrumbs trail={[{ title: "Dashboard" }]} />
 
       <Stack spacing={0.5}>
         <Typography variant="h4" fontWeight={700}>

@@ -4,8 +4,11 @@ export type { NavbarProps } from "./components/Navbar";
 export { Sidebar } from "./components/Sidebar";
 export type { SidebarProps } from "./components/Sidebar";
 
+export { NavigationPanel } from "./components/NavigationPanel";
+export type { NavigationPanelProps, NavigationSection } from "./components/NavigationPanel";
+
 export { Breadcrumbs } from "./components/Breadcrumbs";
-export type { BreadcrumbsProps, BreadcrumbItem } from "./components/Breadcrumbs";
+export type { BreadcrumbsProps, BreadcrumbItem, BreadcrumbTrailItem } from "./components/Breadcrumbs";
 
 export { Tabs } from "./components/Tabs";
 export type { TabsProps, TabItem } from "./components/Tabs";

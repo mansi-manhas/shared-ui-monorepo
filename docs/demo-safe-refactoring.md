@@ -1,14 +1,17 @@
-# Demo: Safe Refactoring — Two Kinds of Breaking Change
+# Demo: Safe Refactoring — Three Kinds of Breaking Change
 
 Backing demo for the talk "Safe Refactoring: The Cost of Change at Scale."
-Stands in for the DatePicker story using components that actually live in
-this repo. Two patterns, deliberately different in shape:
+Three patterns, deliberately different in shape and severity:
 
 1. **A small breaking change (prop rename)** — handled *inside the same
    component*, no new export name ever introduced.
 2. **A large breaking change (different functionality)** — genuinely needs a
    new component, so it gets a real, permanent name from day one and is
    rolled out behind a feature flag instead of a big-bang swap.
+3. **A whole-component deprecation (the actual DatePicker story)** — the old
+   component isn't fixable with a new prop, so the *entire component* is
+   marked deprecated, in place, while a permanently-named replacement takes
+   over.
 
 The naming rule behind both: never introduce a name you intend to delete
 later (`XyzNew`, `XyzV2`). If the change is small enough to fit in the
@@ -153,3 +156,52 @@ once that's validated does `Sidebar` get its own deprecation warning (like
 `Breadcrumbs`'s `items` prop did) and its own audit script — the same Act 3
 pattern, run again, once there's real usage data to justify starting the
 clock on removal.
+
+---
+
+## Pattern 3 — deprecate the whole component (`DatePicker` → `CalendarField`)
+
+This is the pattern the talk is actually named for. `Breadcrumbs` could grow
+a second prop because the new behavior fit inside the same component shape.
+`DatePicker` can't: it's a bare native `<input type="date">` that predates
+this package's shared field styling entirely — no error state, no helper
+text, not built on the `TextField` foundation every other form control
+(`Input`, `Select`) shares. There's no prop you can bolt on to fix that; the
+whole component has to be replaced.
+
+Current state in the repo:
+
+- `DatePicker` (`packages/components-ui/src/components/DatePicker.tsx`) —
+  unchanged, still works exactly as before. The **entire component** carries
+  a `@deprecated` JSDoc tag (visible in editors on import, not just one
+  prop) and logs a dev-only console warning, once, the first time it renders.
+- `CalendarField` (`packages/components-ui/src/components/CalendarField.tsx`)
+  — the replacement, for real, forever, no `V2`/`New` in the name. Same
+  props shape as `Input`/`Select` (`label`, `errorMessage`, `helperText`),
+  built on `TextField`, so it inherits error/helper/disabled styling for
+  free instead of reimplementing it.
+- `packages/demo-app/src/pages/ShowcasePage.tsx` — its own "Date picker" tab
+  renders both, side by side, under "Date pickers — deprecated component,
+  new component".
+- `.changeset/datepicker-calendarfield.md` — a **minor** bump. Nothing
+  broke; `DatePicker` still works, it's just marked for future removal.
+
+### Live demo
+
+1. Run `pnpm dev:demo`, go to Components → Date picker.
+2. Open the dev console first — it's silent.
+3. Point at the "Date pickers" section: `DatePicker` renders on the left,
+   `CalendarField` on the right. The console warning fires the moment
+   `DatePicker` mounts, once, naming the replacement.
+4. Hover `DatePicker` in an editor with TS support — the whole component
+   shows as struck-through/deprecated, not just a prop.
+
+Talking point: Pattern 1 (`Breadcrumbs`) and Pattern 3 (`DatePicker`) look
+similar from the outside — both log a console warning and both keep working
+— but the trigger for choosing one over the other is entirely about *shape*.
+If the new behavior is expressible as a prop on the existing component,
+add the prop and deprecate the prop. If it isn't — different foundation,
+different props, different rendering model — deprecate the whole component
+and give the replacement its permanent name immediately, exactly like
+`NavigationPanel` in Pattern 2. The naming rule is the one constant across
+all three patterns: never ship a name you plan to delete later.

@@ -14,6 +14,8 @@ import {
   Spinner,
   Avatar,
   Tooltip,
+  DatePicker,
+  CalendarField,
   type ButtonVariant,
 } from "@mansi-manhas/components-ui";
 import { Breadcrumbs, Tabs } from "@mansi-manhas/navigation-ui";
@@ -32,6 +34,8 @@ export function ShowcasePage() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [radioValue, setRadioValue] = React.useState("weekly");
   const [tab, setTab] = React.useState("buttons");
+  const [legacyDate, setLegacyDate] = React.useState("");
+  const [calendarDate, setCalendarDate] = React.useState("");
 
   return (
     <Stack spacing={3}>
@@ -52,6 +56,7 @@ export function ShowcasePage() {
         items={[
           { value: "buttons", label: "Buttons & feedback" },
           { value: "forms", label: "Form controls" },
+          { value: "datepicker", label: "Date picker" },
           { value: "surfaces", label: "Surfaces" },
         ]}
       />
@@ -133,6 +138,26 @@ export function ShowcasePage() {
                 { label: "Weekly", value: "weekly" },
                 { label: "Monthly", value: "monthly" },
               ]}
+            />
+          </Section>
+        </Stack>
+      ) : null}
+
+      {tab === "datepicker" ? (
+        <Stack spacing={3}>
+          <Section title="Date pickers — deprecated component, new component">
+            <Typography variant="body2" color="text.secondary">
+              <code>DatePicker</code> is deprecated in its entirety (check the console) and will be
+              removed in a future major version. <code>CalendarField</code> is its permanent
+              replacement — same job, built on the same <code>TextField</code> foundation as{" "}
+              <code>Input</code> and <code>Select</code>, so it gets error/helper text for free.
+            </Typography>
+            <DatePicker label="Start date (deprecated)" value={legacyDate} onChange={setLegacyDate} />
+            <CalendarField
+              label="Start date"
+              value={calendarDate}
+              onChange={(event) => setCalendarDate(event.target.value)}
+              helperText="Replacement for DatePicker"
             />
           </Section>
         </Stack>

@@ -7,6 +7,14 @@ export type { InputProps } from "./components/Input";
 export { Select } from "./components/Select";
 export type { SelectProps, SelectOption } from "./components/Select";
 
+/** @deprecated Use `CalendarField` instead. */
+export { DatePicker } from "./components/DatePicker";
+/** @deprecated Use `CalendarFieldProps` instead. */
+export type { DatePickerProps } from "./components/DatePicker";
+
+export { CalendarField } from "./components/CalendarField";
+export type { CalendarFieldProps } from "./components/CalendarField";
+
 export { Checkbox } from "./components/Checkbox";
 export type { CheckboxProps } from "./components/Checkbox";
 
